@@ -1,0 +1,19 @@
+Period 8: Russell Goychayev, Abdullah, Tasnim
+APCS
+HW06 --
+2021-09-28
+
+1--------------------------------
+Scheme:
+(begin (display "Hello, World!"")
+       (newline))
+       
+NetLogo:
+write "Hello, World!"
+
+Python
+print("Hello, World!")
+
+3---------------------------------
+
+4---------------------------------
