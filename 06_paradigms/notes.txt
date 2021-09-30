@@ -1,0 +1,22 @@
+Scheme
+(display "hello world")
+(newline)
+
+output is 
+Hellow World
+
+NetLogo
+to writehelloworld
+	write "hellow world"
+end
+
+output is
+hello world
+
+Python
+print("hello world")
+
+output is
+hello world
+
+all is good and working :)
