@@ -1,0 +1,25 @@
+iteration with while
+
+body
+
+loop
+
+generating tables
+
+incremental development via encapsulation and
+generalization with the main method
+
+decrement and increment operators (-- and ++)
+
+while and for (pretest)
+do - while (posttest)
+
+break and continue
+
+while (boolean) {
+  statemnts;
+}
+
+for (a=1; a<10; a++){
+  do stuff;
+}

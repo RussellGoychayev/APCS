@@ -1,0 +1,47 @@
+There are math classes that
+come with math methods, which are said to
+be invoked.
+
+ints are 32 bit, while longs are 64 bit.
+
+composition of java methods.
+
+creating methods;
+methodName vs ClassName
+
+public methods can be invoked by other classes!
+void methods do not return values
+mai
+
+class: NewLine
+--> two methods: newLine and main
+--> main has one parameter,
+it is args which has type String[]. whoever
+invokes main must provide an array
+of strings. newLine has no parameters
+
+flow of execution always begins at the first statement
+of main.
+
+parameter passing.
+
+stack diagram.
+
+Javadoc comments:
+/** */
+
+Exercise 1:
+1) starts at main as always, then calls
+the zoop method, which calls baffle, and so on.
+There are new lines at every ping. The output
+looks something like this:
+
+No, I wug.You wugga wug.I wug.
+
+Notice the lack of spaces after each period
+
+2)The stack diagram is in my notebook.
+
+3)Overflow error because these methods
+call each other repeatedly until the
+world explodes.

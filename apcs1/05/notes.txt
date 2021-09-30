@@ -1,0 +1,28 @@
+anatomy of a method:
+
+public static RETURNTYPE NAME(ARGUMENTS){
+ BODY
+}
+
+incremental development
+be smart with it
+
+scaffolding
+
+method composition
+
+overloading:
+two methods share one name; java differentiates
+them by their parameters
+
+Boolean methods
+
+Javadoc tags (/** */):
+@param
+@return
+
+leap of faith (for recursion)
+(work around flow of execution)
+
+unreachable statements are seen as errors
+even though sometimes they dont matter
