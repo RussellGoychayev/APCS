@@ -1,5 +1,5 @@
 /*
-Abdullah Faruque
+Russell Goychayev
 APCS
 HW08: Refactor Freshie Zero
 2021-09-30
@@ -19,6 +19,6 @@ public class Greet {
 	public static void main(String[] args) {
 		greet("Kevin");
 		greet("Abdullah");
-		greet("Russel");
+		greet("Russell");
 	}
 }
