@@ -1,5 +1,5 @@
 /*
-Russell Goychayev
+period 8: Russell Goychayev, Tasnim, Abdullah + ducky, Bob II
 APCS
 HW09: What Are BigSibs Good For?
 2021-10-04
