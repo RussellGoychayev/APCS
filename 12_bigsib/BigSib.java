@@ -1,5 +1,5 @@
 /*
-Russell Goychayev and Bob II
+Squids: (Humans:) Russell Goychayev and Eric He and (Duckies:) Bob and Bob II
 APCS
 HW12: On Elder Individuality and the Elimination of Radio Fuzz
 2021-10-06
