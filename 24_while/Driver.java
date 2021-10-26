@@ -1,47 +1,38 @@
 // Abdullah Faruque, Russell Goychayev (Team Bozos)
 // APCS
-// HW23: What Does Equality Look Like?
-// 2021-10-23
-// time spent- 1.0 hours
+// HW24: Get It While You Can
+// 2021-10-25
+// time spent- 1.5 hours
 
 /*
-DISCO: math.random is quite nice for probability. 
-QCC:
+DISCO: while loops let you keep flipping till you meet the requirements. 
+QCC:number of matches is always DOB*33. Why?
 */
 
 public class Driver {
 
-  public static void main( String[] args ) {
 
-    //build Objects from blueprint specified by class Coin
+public static void bozos(int x, int y, int dob){
+	Coin a= new Coin("penny");
+	Coin b= new Coin("quarter");
+	int matches=0;
+	int flips=0;
+	while ((a.getHeadsCtr()+b.getHeadsCtr()<x) || (matches<y) || (matches<65536) || ((matches%dob != 0))){
+		a.flip();
+		b.flip();
+		flips++;
+		if(a.equals(b)){
+			matches+=1;
+		}
+	
+	}
 
-
-    //test default constructor
-      Coin mine = new Coin();
-      Coin yours= new Coin();
-      
-// flip until x heads come up
-// flip until y matches
-// flip until at least 65536 matches have come up 
-// num matches % DOB == 0
-int x, y, dob;
-
-public void Bozo(xNew, yNew, dobNew) {
-x = xNew;
-y = yNew;
-dob = dobNew;
-if( x==(mine.getHeadsCtr()+yours.getHeadsCtr())&&
-// abs(x head - y head) + abs(x tails - y tails)
-y= Math.abs(mine.getHeadsCtr()-yours.getHeadsCtr())&&
-3 &&
-4) {
-
+  	System.out.println("Matches: " + matches);
+	System.out.println("Flips: " + flips);
+	System.out.println("coin a headcount: " + a.getHeadsCtr());
+	System.out.println("coin b headcount: " + b.getHeadsCtr());
+}
+public static void main(String[] args){
+	bozos(2000,2000,2005);
 }
 }
-        /*===================TOP==========================
-
-      ====================BOTTOM======================*/
-
-  }//end main()
-
-}//end class
