@@ -1,12 +1,12 @@
 // Abdullah Faruque, Russell Goychayev (Team Bozos)
 // APCS
-// HW23: What Does Equality Look Like?
-// 2021-10-23
-// time spent- 1.0 hours
+// HW24: Get It While You Can
+// 2021-10-25
+// time spent- 1.5 hours
 
 /*
-DISCO: math.random is quite nice for probability. 
-QCC:
+DISCO: while loops let you keep flipping till you meet the requirements. 
+QCC:number of matches is always DOB*33. Why?
 */
 
 
