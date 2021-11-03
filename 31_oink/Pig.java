@@ -1,5 +1,5 @@
 /***
- * Russell Goychayev
+ * Team Inari: Russell Goychayev, Ethan Lam, Oscar Breen
  * APCS
  * HW31 -- Otnay Ybay ethay Airhay Onway Ymay Inneechay Inchay Inchay
  * 2021-11-04
