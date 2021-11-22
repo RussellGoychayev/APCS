@@ -1,0 +1,10 @@
+/*
+* Russell Goychayev
+* APCS
+* HW36: All Quacked Up
+* 2021-11-21
+* time spent: hours
+
+* DISC- 
+* QCC- 
+*/
