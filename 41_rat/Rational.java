@@ -5,14 +5,17 @@
  * 2021-12-1
  * time spent - 0.3 hours
  *
- * Disco-
+ * Disco -
+ * you can make your own constructors and override default constructor
+ * you can make your own toString and override default toString
+ * this keyword
  *
  * QCC- ...
  *
 */
 
 public class Rational{
-  private int numer , denom;
+  public int numer , denom;
 
   public Rational(){
     this.numer = 0;
@@ -25,8 +28,8 @@ public class Rational{
 
     if (denom == 0) {
       System.out.println("Invalid denominator.");
-      numer=0;
-      denom=1;
+      this.numer=0;
+      this.denom=1;
     }
   }
 
@@ -49,14 +52,18 @@ public class Rational{
   }
 
   public static void main(String[] args){
+    Rational x = new Rational();
+    Rational y = new Rational(1, 0);
+    System.out.println(x);
+    System.out.println(y);
+    System.out.println();
     Rational r = new Rational(2,3);
-	Rational s = new Rational(1,2);
+    Rational s = new Rational(1,2);
     System.out.println(r.toString());
-	System.out.println(floatValue(r));
-	r.multiply(s);
-	System.out.println(r.toString());
-	r.divide(s);
-	System.out.println(r.toString());
-
+    System.out.println(floatValue(r));
+    r.multiply(s);
+    System.out.println(r.toString());
+    r.divide(s);
+    System.out.println(r.toString());
   }
 }
