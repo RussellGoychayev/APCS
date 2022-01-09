@@ -64,12 +64,12 @@ public class SelectionSort {
     //maxPos will point to position of SELECTION (greatest value)
     int maxPos;
 
-    for(int pass = data.size() - 1; pass > 0; pass--) {
-      System.out.println( "\nbegin pass " + (data.size() - pass) );//diag
-      maxPos = pass;
+    for(int pass = data.size() - 1; pass > 0; pass--) {//pass through the array n-1 times,
+    //  System.out.println( "\nbegin pass " + (data.size() - pass) );//diag
+      maxPos = pass;//setting the partition at every pass (from right to left because pass is decrementing)
 
-      for(int i = pass - 1; i >= 0; i--) {
-        if((int)data.get(i) > (int)data.get(maxPos)) {
+      for(int i = pass - 1; i >= 0; i--) {//for every pass, "walk" one after the partition from right to left,
+        if((int)data.get(i) > (int)data.get(maxPos)) {//checking to see if the
           maxPos = i;
         }
 
