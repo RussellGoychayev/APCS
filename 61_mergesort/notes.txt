@@ -2,7 +2,7 @@ Stack Underflow:: Ariel Fuchs, Nada Hameed, Russell Goychayev
 APCS pd0
 HW61: Instructions So Simple...
 2022-02-07m
-time spent: 1 hrs
+time spent: 1.5 hrs
 
 
 DISCO
@@ -13,4 +13,5 @@ DISCO
 QCC
 ------------------------------------------------
 * Code is kinda ugly, will reform later
+* Code is no longer ugly
 ================================================
