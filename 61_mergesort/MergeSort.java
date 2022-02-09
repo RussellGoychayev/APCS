@@ -16,7 +16,7 @@ public class MergeSort
   * output array sorted in ascending order.
   ******************************************************/
   private static int[] merge( int[] a, int[] b )
-  /*
+
   {
     int[] bear = new int[a.length+b.length];
     int actr = 0;
@@ -32,14 +32,11 @@ public class MergeSort
         bctr++;
       }
 
-
       else if (a[actr] == b[bctr]) {
         //case 2
         bear[i] = a[actr];
         actr++;
-
         i++;
-
         bear[i] = b[bctr];
         bctr++;
       }
@@ -54,7 +51,7 @@ public class MergeSort
     }
 
     if ( actr < a.length){
-      for (int actr1 = actr; actr1<a.length; actr1++){
+      for (int actr1 = actr; actr1 < a.length; actr1++){
         bear[i] = a[actr1];
         i++;
       }
@@ -69,8 +66,8 @@ public class MergeSort
 
     return bear;
   }//end merge()
-  */
-  {
+
+  /*{
     int[] bear = new int[a.length+b.length];
     int actr = 0;
     int bctr = 0;
@@ -119,7 +116,7 @@ public class MergeSort
 
     return bear;
   }//end merge()
-
+*/
   /******************************************************
   * int[] sort(int[])
   * Sorts input array using mergesort algorithm
@@ -127,8 +124,34 @@ public class MergeSort
   ******************************************************/
   public static int[] sort( int[] arr )
   {
-    int[] bob = new int[ arr.length ];
-    return bob;
+    int[] bob = new int[(int)arr.length/2];
+    int[] rob = new int[0];
+
+    if (arr.length == 1){
+      return arr;
+    }
+
+    if (arr.length > 1){
+      if (arr.length%2 == 0){
+        rob = new int[(int)arr.length/2];
+      }
+      else {
+        rob = new int[( (int)arr.length/2 ) + 1];
+      }
+
+      for (int b = 0; b < bob.length; b++){
+        bob[b] = arr[b];
+      }
+
+      for (int r = 0; r < rob.length; r++){
+        //System.out.println(r);
+        //System.out.println(rob.length);
+        rob[r] = arr[r + rob.length - 1];
+      }
+      sort(bob);
+      sort(rob);
+    }
+    return merge( sort(bob), sort(rob) );
   }//end sort()
 
 
@@ -162,24 +185,28 @@ public class MergeSort
     int[] arr5 = {4,3,2,1};
     int[] arr6 = {9,42,17,63,0,512,23};
     int[] arr7 = {9,42,17,63,0,9,512,23,9};
+    int[] arrX = {1, 3, 3, 7};
+    int[] arrY = {2, 3, 3, 3, 3, 3, 8};
 
-    System.out.println("\nTesting mess-with-array method...");
+    /*System.out.println("\nTesting mess-with-array method...");
     printArray( arr3 );
     mess(arr3);
-    printArray( arr3 );
+    printArray( arr3 );*/
 
     System.out.println("\nMerging arr1 and arr0: ");
     printArray( merge(arr1,arr0) );
 
     System.out.println("\nMerging arr4 and arr6: ");
     printArray( merge(arr4,arr6) );
-    /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
+
+    System.out.println("\nMerging arrX and arrY: ");
+    printArray( merge(arrX,arrY));
+
     System.out.println("\nSorting arr4-7...");
     printArray( sort( arr4 ) );
     printArray( sort( arr5 ) );
     printArray( sort( arr6 ) );
     printArray( sort( arr7 ) );
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
 }//end class MergeSort
