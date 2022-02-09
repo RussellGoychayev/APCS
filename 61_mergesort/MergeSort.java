@@ -3,6 +3,7 @@ class MergeSort
 Implements mergesort on array of ints.
 
 Summary of Algorithm:
+ls
 
 ***/
 
@@ -188,10 +189,16 @@ public class MergeSort
     int[] arrX = {1, 3, 3, 7};
     int[] arrY = {2, 3, 3, 3, 3, 3, 8};
 
-    /*System.out.println("\nTesting mess-with-array method...");
+    System.out.println("\nTesting mess-with-array method...");
+    /*
     printArray( arr3 );
     mess(arr3);
-    printArray( arr3 );*/
+    printArray( arr3 );
+
+    System.out.println("\nTesting mess-with-array method...");
+    printArray( arr7 );
+    mess(arr7);
+    printArray( arr7 );*/
 
     System.out.println("\nMerging arr1 and arr0: ");
     printArray( merge(arr1,arr0) );
