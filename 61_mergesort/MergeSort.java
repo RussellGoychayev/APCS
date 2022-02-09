@@ -149,8 +149,6 @@ public class MergeSort
         //System.out.println(rob.length);
         rob[r] = arr[r + rob.length - 1];
       }
-      sort(bob);
-      sort(rob);
     }
     return merge( sort(bob), sort(rob) );
   }//end sort()
