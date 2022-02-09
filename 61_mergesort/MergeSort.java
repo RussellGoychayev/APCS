@@ -3,7 +3,12 @@ class MergeSort
 Implements mergesort on array of ints.
 
 Summary of Algorithm:
-ls
+
+1) halve "downwards"
+2) merge "upwards"
+
+- uses recursion
+- see comments for more detail
 
 ***/
 
@@ -17,7 +22,50 @@ public class MergeSort
   * output array sorted in ascending order.
   ******************************************************/
   private static int[] merge( int[] a, int[] b )
+  {
+    int[] bear = new int[a.length+b.length];
+    int actr = 0;
+    int bctr = 0;
+    int i = 0;
 
+    //3 possible cases:
+    while (actr < a.length && bctr < b.length) {
+
+      //case 1
+      if (a[actr] > b[bctr]) {
+        bear[i++] = b[bctr++];
+      }
+
+      //case 2
+      else if (a[actr] == b[bctr]) {
+        bear[i++] = a[actr++];
+        bear[i++] = b[bctr++];
+      }
+
+      //case 3
+      else {
+        bear[i++] = a[actr++];
+      }
+    }
+
+    //if a is "unexpired"
+    if ( actr < a.length){
+      while (actr < a.length){
+        bear[i++] = a[actr++];
+      }
+    }
+
+    //if b is "unexpired"
+    else {
+      while (bctr < b.length){
+        bear[i++] = b[bctr++];
+      }
+    }
+
+    return bear;
+  }//end merge()*/
+
+  /*//old version, works but is ugly
   {
     int[] bear = new int[a.length+b.length];
     int actr = 0;
@@ -67,7 +115,9 @@ public class MergeSort
 
     return bear;
   }//end merge()
+  */
 
+  //old version, doesnt work
   /*{
     int[] bear = new int[a.length+b.length];
     int actr = 0;
@@ -125,31 +175,39 @@ public class MergeSort
   ******************************************************/
   public static int[] sort( int[] arr )
   {
+    //bob = first half of arr
     int[] bob = new int[(int)arr.length/2];
-    int[] rob = new int[0];
 
-    if (arr.length == 1){
-      return arr;
+    //rob = second half of arr
+    int[] rob;
+    if (arr.length%2 == 0){//if even
+      rob = new int[(int)arr.length/2];
+    }
+    else {//if odd
+      rob = new int[( (int)arr.length/2 ) + 1];
     }
 
+    //case 1
     if (arr.length > 1){
-      if (arr.length%2 == 0){
-        rob = new int[(int)arr.length/2];
-      }
-      else {
-        rob = new int[( (int)arr.length/2 ) + 1];
-      }
 
+      //populate bob
       for (int b = 0; b < bob.length; b++){
         bob[b] = arr[b];
       }
 
+      //populate rob
       for (int r = 0; r < rob.length; r++){
         //System.out.println(r);
         //System.out.println(rob.length);
         rob[r] = arr[r + rob.length - 1];
       }
     }
+
+    //case 2
+    else {
+      return arr;
+    }
+
     return merge( sort(bob), sort(rob) );
   }//end sort()
 
