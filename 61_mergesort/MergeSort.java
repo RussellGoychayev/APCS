@@ -176,16 +176,10 @@ public class MergeSort
   public static int[] sort( int[] arr )
   {
     //bob = first half of arr
-    int[] bob = new int[(int)arr.length/2];
+    int[] bob = new int[arr.length/2];
 
     //rob = second half of arr
-    int[] rob;
-    if (arr.length%2 == 0){//if even
-      rob = new int[(int)arr.length/2];
-    }
-    else {//if odd
-      rob = new int[( (int)arr.length/2 ) + 1];
-    }
+    int[] rob = new int[arr.length - arr.length/2];
 
     //case 1
     if (arr.length > 1){
