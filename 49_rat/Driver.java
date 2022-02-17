@@ -5,7 +5,7 @@ public class Driver {
 		Rational b = new Rational(3, 4);
 		Rational c = new Rational(3, 6);
 		String deez = new String("4, 6");
-
+		
 		System.out.println("1/2 = 3/6? " + a.equals(c));
 		System.out.println("1/2 v 3/6: " + a.compareTo(c));
 		System.out.println("1/2 = 3/4? " + a.equals(b));
