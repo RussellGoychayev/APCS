@@ -1,0 +1,27 @@
+Russell Goychayev + duck, Jason Zhou + duck, Eric/Zhenxi He + duck
+APCS
+HW69 -- Making Sense
+2022-03-02
+time spent: 0.0
+
+1)
+
+ * n=5   0.268 s    across 5 executions 
+ * n=6   0.2882 s    across 5 executions
+ * n=7   __s    across __ executions //uhh these are taking way too long
+ * n=8   __s    across __ executions //uhh these are taking way too long
+
+ q0) From any starting position, an open tour can ...
+ q1) From any starting position, a closed tour can ...
+ q2) The increase in execution time as n increases can be explained
+	by the runtime complexity of your knight's tour algorithm.
+ q3) Stop using brute force; use a better set of rules.
+
+2) Given that the maze has a reachable exit:
+
+ Repeat until hero is on exit:
+ 1) Check neighborhood for a valid unvisited path
+ 2) If valid unvisited path exists, mark current
+	location and then go to valid unvisited path
+ 3) If valid unvisited path doesn't exist, return to
+	most recent marked location.
