@@ -47,6 +47,7 @@ public class QueenBoard
         all negs and 0's replaced with underscore
         all 1's replaced with 'Q'
     */
+  //  for int a = _
   }
 
 
@@ -56,9 +57,11 @@ public class QueenBoard
   /***
    * <General description>
    * precondition:
+  given square is empty
    * postcondition:
    */
   private boolean addQueen(int row, int col)
+  //row, col -> (x, y)
   {
     if(_board[row][col] != 0){
       return false;
@@ -106,11 +109,11 @@ public class QueenBoard
 
 
   /***
-   * <General description>
-   * precondition:
-   * postcondition:
+   * Overloaded toString() method for a _board
+   * precondition: calling object is a _board
+   * postcondition: prints _board as specified
    */
-  public String  toString()
+  public String toString()
   {
     String ans = "";
     for( int r = 0; r < _board.length; r++ ) {
