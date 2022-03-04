@@ -30,7 +30,7 @@ import java.util.*;
 
 class MazeSolver
 {
-  final private int FRAME_DELAY = 200;
+  final private int FRAME_DELAY = 100;
 
   private char[][] _maze;
   private int h, w; // height, width of maze
@@ -159,7 +159,7 @@ class MazeSolver
 
   //accessor method to help with randomized drop-in location
   public boolean onPath( int x, int y) {
-    return !(this._maze[x][y] == ' ');
+    return this._maze[x][y] == '#';
   }
 
 }//end class MazeSolver
