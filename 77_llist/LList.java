@@ -1,9 +1,9 @@
 /**
  *Team Purple Pineapples: Jason Zhou, Marcus Wu, Russell Goychayev
  *APCS pd7
- *HW76 -- We Got a Little Ol' Convoy
- *2022-03-14
- *time spent: 0.6 hr
+ *HW77 -- Insert|Remove -- add and remove
+ *2022-03-15
+ *time spent: 0.8 hr
  */
 
 /***
@@ -13,9 +13,14 @@
 
 /**
  * DISCO: N/A
- * 
+ *
  * QCC: N/A
- * 
+ *
+ * Algo: for add we create holder that points to wherever we want to add. We (break apart) the pointer to the next node
+ *       at insertion and point it to the con cell that we want and we have the con cell point to the next node.
+ *
+ *       for remove we do the same thing but we don't have that con cell, we just have the node point to two nodes ahead.
+ *
  */
 public class LList implements List //interface def must be in this dir
 {
@@ -39,18 +44,8 @@ public class LList implements List //interface def must be in this dir
   {
     // YOUR CODE HERE
     //do this the first time (head has no pointers)
-    if (_head == null) {
-      _head = new LLNode(newVal, null);
-    } else {
-      //traverse
-      LLNode holder = _head;
-      //go through until its null
-      for(;holder.getNext() != null;) {
-       holder = holder.getNext();
-      }
-      holder.setNext(new LLNode(newVal, null));
-    }
-    
+    LLNode tmp = new LLNode( newVal, _head );
+    _head = tmp;
     _size++;
     return true;
   }
@@ -64,7 +59,7 @@ public class LList implements List //interface def must be in this dir
     // YOUR CODE HERE
     LLNode holder = _head;
     int num = 0;
-    while (num < index) { 
+    while (num < index) {
       holder = holder.getNext();
       num++;
     }
@@ -100,60 +95,77 @@ public class LList implements List //interface def must be in this dir
 
   //--------------^  List interface methods  ^--------------
 
+  public String remove(int index)
+  {
+    //OMG IM DYING THAT IS THE UGLIST CODE I'VE WRITTEN
+    if ( index < 0 || index >= size() )
+      throw new IndexOutOfBoundsException();
+    if (index == 0) {
+      String val = _head.getCargo();
+      _head = _head.getNext();
+      _size--;
+      return val;
 
+    }
+    String returnVal = "";
+    LLNode holder = _head;
+    for (int i = 0; i < index - 1; i++) {
+      holder = holder.getNext();
+    }
+    returnVal = holder.getNext().getCargo();
+    holder.setNext(holder.getNext().getNext());
+    _size--;
+    return returnVal;
+  }
+
+  public void add( int index, String newVal )
+  {
+    if ( index < 0 || index > size() )
+      throw new IndexOutOfBoundsException();
+    LLNode holder = _head;
+    if (index == 0) {
+      _head = new LLNode(newVal, holder);
+
+    } else {
+      for (int i = 0; i < index - 1; i++) {
+        holder = holder.getNext();
+      }
+      holder.setNext(new LLNode(newVal, holder.getNext()));
+    }
+    _size++;
+
+
+  }
 
   // override inherited toString
   public String toString()
   {
     // YOUR CODE HERE
-    String returnVal = "";
-    LLNode holder = _head;
-    while(holder != null) {
-      returnVal += holder.getCargo() + ", ";
-      holder = holder.getNext();
+    String retStr = "HEAD->";
+    LLNode tmp = _head; //init tr
+    while( tmp != null ) {
+	    retStr += tmp.getCargo() + "->";
+	    tmp = tmp.getNext();
     }
-    return returnVal;
+    retStr += "NULL";
+    return retStr;
   }
 
 
   //main method for testing
   public static void main( String[] args )
   {
-    
+
     LList james = new LList();
     james.add("elmo");
-    System.out.println(james.size());
-    System.out.println(james.get(0));
-    james.add("senpia");
-    System.out.println(james.get(1));
+    james.add("fineas");
+    james.add(0, "flea");
+    james.add(1, "fleav2");
+    System.out.println(james);
+    james.remove(3);
 
-    
-    System.out.println( james );
-    System.out.println( "size: " + james.size() );
+    System.out.println(james);
 
-    james.add("beat");
-    System.out.println( james );
-    System.out.println( "size: " + james.size() );
-
-    james.add("a");
-    System.out.println( james );
-    System.out.println( "size: " + james.size() );
-
-    james.add("need");
-    System.out.println( james );
-    System.out.println( "size: " + james.size() );
-
-    james.add("I");
-    System.out.println( james );
-    System.out.println( "size: " + james.size() );
-
-    System.out.println( "2nd item is: " + james.get(1) );
-
-    james.set( 1, "got" );
-    System.out.println( "...and now 2nd item is: " + james.set(1,"got") );
-
-    System.out.println( james );
-    
   }
 
 }//end class LList
