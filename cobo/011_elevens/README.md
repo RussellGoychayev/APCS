@@ -1,4 +1,4 @@
-#### L07: But These Go Up To Eleven
+# L07: But These Go Up To Eleven
 
 
 Team Explorers: Eric He + bob, Marcus Wu + nat, Russell Goychayev + bob
