@@ -1,3 +1,11 @@
+/**
+Team Explorers: Eric He + bob, Marcus Wu + nat, Russell Goychayev + bob
+APCS
+L07: But These Go Up To Eleven
+2022-03-18
+Time Spent: 1.0 hours
+*/
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -29,9 +37,20 @@ public class Deck {
 	 * @param suits is an array containing all of the card suits.
 	 * @param values is an array containing all of the card point values.
 	 */
-	public Deck(String[] ranks, String[] suits, int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-	}
+	 public Deck(String[] ranks, String[] suits, int[] values) {
+		 cards = new ArrayList<Card>();
+
+		 for (String suit: suits){
+			 for (int i=0; i<ranks.length; i++){
+
+				 cards.add( new Card(ranks[i], suit, values[i]) );
+				 size++;
+
+			 }
+		 }
+
+		 cards.shuffle();
+	 }
 
 
 	/**
@@ -39,7 +58,7 @@ public class Deck {
 	 * @return true if this deck is empty, false otherwise.
 	 */
 	public boolean isEmpty() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		return size() == 0;
 	}
 
 	/**
@@ -47,7 +66,7 @@ public class Deck {
 	 * @return the number of undealt cards in this deck.
 	 */
 	public int size() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		return size;
 	}
 
 	/**
@@ -55,7 +74,16 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		//for size times:
+		for (int i=0; i<size(); i++){
+
+			//generate 2 random indexes
+			int rand1 = (int)Math.random() * size;
+			int rand2 = (int)Math.random() * size;
+
+			//swap them
+			cards.set( rand2, (cards.set(rand1, cards.get(rand2)) ) );
+		}
 	}
 
 	/**
@@ -64,7 +92,11 @@ public class Deck {
 	 *         previously dealt.
 	 */
 	public Card deal() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		if ( size == 0 )
+			return null;
+
+		size--;
+		return cards.get( size );
 	}
 
 	/**

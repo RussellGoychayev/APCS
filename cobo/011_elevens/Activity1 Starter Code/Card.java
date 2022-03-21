@@ -1,9 +1,18 @@
 /**
+Team Explorers: Eric He + bob, Marcus Wu + nat, Russell Goychayev + bob
+APCS
+L07: But These Go Up To Eleven
+2022-03-18
+Time Spent: 1.0 hours
+*/
+
+/**
  * Card.java
  *
  * <code>Card</code> represents a playing card.
  */
 public class Card {
+
 	/**
 	 * String value that holds the suit of the card
 	 */
@@ -31,9 +40,9 @@ public class Card {
 	 *                  containing the point value of the card
 	 */
 	public Card(String cardRank, String cardSuit, int cardPointValue) {
-		this.suit = cardSuit;
-		this.rank = cardRank;
-		this.pointValue = cardPointValue;
+		suit = cardSuit;
+		rank = cardRank;
+		pointValue = cardPointValue;
 	}
 
 
@@ -42,7 +51,7 @@ public class Card {
 	 * @return this <code>Card's</code> suit.
 	 */
 	public String suit() {
-		return this.suit;
+		return suit;
    }
 
 	/**
@@ -50,7 +59,7 @@ public class Card {
 	 * @return this <code>Card's</code> rank.
 	 */
 	public String rank() {
-		return this.rank;
+		return rank;
 	}
 
    /**
@@ -58,7 +67,7 @@ public class Card {
 	 * @return this <code>Card's</code> point value.
 	 */
 	public int pointValue() {
-		return this.pointValue;
+		return pointValue;
 	}
 
 	/** Compare this card with the argument.
@@ -88,7 +97,7 @@ public class Card {
 	 */
 	@Override
 	public String toString() {
-		String retVal = this.rank() + " of " + this.suit() + " point value = " + this.pointValue();
+		String retVal = rank + " of " + suit + " point value = " + pointValue;
 		return retVal;
 	}
 }
