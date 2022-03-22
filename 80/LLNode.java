@@ -1,60 +1,47 @@
 /***
  * class LLNode
  * Implements a node, for use in lists and other container classes.
- * Stores its data as a XYZ
+ * Stores its data as a String
  **/
 
-public class DLLNode<XYZ>
+public class<Object> LLNode
 {
   //instance vars
-  private XYZ data;
-  private DLLNode nextNode;
-  private DLLNode previousNode;
+  private String data;
+  private LLNode nextNode;
 
   // constructor
-  public DLLNode( XYZ value, DLLNode next, DLLNode previousNode )
+  public LLNode( String value, LLNode next )
   {
     this.data = value;
     this.nextNode = next;
-    this.previousNode = previousNode;
   }
 
 
   //--------------v  ACCESSORS  v--------------
-  public XYZ getCargo()
+  public String getCargo()
   {
-    return (XYZ) data;
+    return data;
   }
 
-  public DLLNode getNext()
+  public LLNode getNext()
   {
     return nextNode;
-  }
-
-  public DLLNode getPrevious()
-  {
-    return previousNode;
   }
   //--------------^  ACCESSORS  ^--------------
 
 
   //--------------v  MUTATORS  v--------------
-  public XYZ  setCargo( XYZ  newCargo )
+  public String setCargo( String newCargo )
   {
     this.data = newCargo;
     return this.data;
   }
 
-  public DLLNode setNext( DLLNode newNext )
+  public LLNode setNext( LLNode newNext )
   {
     this.nextNode = newNext;
     return this.nextNode;
-  }
-
-  public DLLNode setPrevious( DLLNode newPrevious )
-  {
-    this.previousNode = newPrevious;
-    return this.previousNode;
   }
   //--------------^  MUTATORS  ^--------------
 
@@ -69,6 +56,23 @@ public class DLLNode<XYZ>
   //main method for testing
   public static void main( String[] args )
   {
+
+    //Below is an exercise in creating a linked list...
+
+    //Create a node
+    LLNode first = new LLNode( "cat", null );
+
+    //Create a new node after the first
+    first.setNext( new LLNode( "dog", null ) );
+
+    //Create a third node after the second
+    first.getNext().setNext( new LLNode( "cow", null ) );
+
+    // A naive list traversal, has side effects.... ??
+       while( first != null ) {
+       System.out.println( first );
+       first = first.getNext();
+       }
 
 
     //Q: when head ptr moves to next node in list, what happens to the node it just left?
