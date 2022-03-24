@@ -4,7 +4,7 @@
  * Stores its data as a String
  **/
 
-public class<Object> LLNode
+public class LLNode
 {
   //instance vars
   private String data;
