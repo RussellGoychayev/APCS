@@ -8,15 +8,15 @@ public class DLLNode
 {
   //instance vars
   private String data;
-  private DLLNode nextNode; 
+  private DLLNode nextNode;
   private DLLNode previousNode;
 
   // constructor
-  public DLLNode( String value, DLLNode next, DLLNode previousNode )
+  public DLLNode( String data, DLLNode next, DLLNode previous )
   {
-    this.data = value;
-    this.nextNode = next;
-    this.previousNode = previousNode;
+    data = data;
+    nextNode = next;
+    previousNode = previous;
   }
 
 
@@ -30,8 +30,8 @@ public class DLLNode
   {
     return nextNode;
   }
-  
-  public DLLNode getPrevious() 
+
+  public DLLNode getPrevious()
   {
     return previousNode;
   }
@@ -41,20 +41,22 @@ public class DLLNode
   //--------------v  MUTATORS  v--------------
   public String setCargo( String newCargo )
   {
-    this.data = newCargo;
-    return this.data;
+    data = newCargo;
+    return data;
   }
 
   public DLLNode setNext( DLLNode newNext )
   {
-    this.nextNode = newNext;
-    return this.nextNode;
+    DLLNode retVal = this.nextNode;
+    nextNode = newNext;
+    return retVal;
   }
 
-  public DLLNode setPrevious( DLLNode newPrevious )
+  public DLLNode setPrev( DLLNode newPrevious )
   {
-    this.previousNode = newPrevious;
-    return this.previousNode;
+    DLLNode retVal = this.previousNode;
+    previousNode = newPrevious;
+    return retVal;
   }
   //--------------^  MUTATORS  ^--------------
 
@@ -69,7 +71,7 @@ public class DLLNode
   //main method for testing
   public static void main( String[] args )
   {
-    
+
 
     //Q: when head ptr moves to next node in list, what happens to the node it just left?
 
@@ -83,4 +85,3 @@ public class DLLNode
   }//end main
 
 }//end class LLNode
-

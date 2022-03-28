@@ -28,43 +28,46 @@ public class Latkes
        magicks
        here
     */
+    _stack = new String[initCapacity];
+    _stackSize = initCapacity;
   }// O(?)
+  //O(1)
+
 
 
   //means of insertion
   public void push( String s )
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
-  }// O(?)
+    String[] holder = new String[_stackSize + 1];
+    for (int i = 0; i < _stack.length; i++) {
+      holder[i] = _stack[i];
+    }
+    holder[_stackSize] = s;
+    _stackSize++;
+    _stack = holder;
+  }// O(n)
+
 
 
   //means of removal
   public String pop( )
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
-  }// O(?)
+    String[] holder = new String[_stackSize - 1];
+    for (int i = 0; i < _stack.length - 1; i++) {
+      holder[i] = _stack[i];
+    }
+    String returnVal = _stack[_stackSize - 1];
+    _stackSize--;
+    _stack = holder;
+    return returnVal;
+  }// O(n)
 
 
   //chk for emptiness
   public boolean isEmpty()
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
-  }// O(?)
+    return (_stackSize == 0);
+  }// O(1)
 
 
   //chk for fullness
@@ -76,13 +79,14 @@ public class Latkes
        magicks
        here
     */
+    return false;
   }// O(?)
 
 
   //main method for testing
   public static void main( String[] args )
   {
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
+
 
     Latkes tastyStack = new Latkes(10);
 
@@ -126,6 +130,15 @@ public class Latkes
 
     //stack empty by now; SOP(null)
     System.out.println( tastyStack.pop() );
+      System.out.println( tastyStack.pop() );
+        System.out.println( tastyStack.pop() );
+
+          System.out.println( tastyStack.pop() );
+            System.out.println( tastyStack.pop() );
+              System.out.println( tastyStack.pop() );
+              
+
+      /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
 
   }//end main()
