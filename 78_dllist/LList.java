@@ -14,17 +14,17 @@
 
 /**
  * DISCO: N/A
- *
+ * 
  * QCC: N/A
- *
+ * 
  * Algo: for add we create holder that points to wherever we want to add. We (break apart) the pointer to the next node
  *       at insertion and point it to the con cell that we want and we have the con cell point to the next node.
- *
+ * 
  *       for remove we do the same thing but we don't have that con cell, we just have the node point to two nodes ahead.
- *
+ * 
  *       NOW WE DO THE SAME THING AS ABOVE BUT WE ADD THE PREVIOUS POINTERS !!!
  */
-public class LList<XYZ> implements List<XYZ> //interface def must be in this dir
+public class LList implements List //interface def must be in this dir
 {
 
   //instance vars
@@ -44,7 +44,7 @@ public class LList<XYZ> implements List<XYZ> //interface def must be in this dir
 
   //--------------v  List interface methods  v--------------
 
-  public boolean add( XYZ newVal )
+  public boolean add( String newVal )
   {
     // YOUR CODE HERE
     //do this the first time (head has no pointers)
@@ -65,7 +65,7 @@ public class LList<XYZ> implements List<XYZ> //interface def must be in this dir
   }
 
 
-  public XYZ get( int index )
+  public String get( int index )
   {
     if ( index < 0 || index >= size() )
       throw new IndexOutOfBoundsException();
@@ -73,15 +73,15 @@ public class LList<XYZ> implements List<XYZ> //interface def must be in this dir
     // YOUR CODE HERE
     DLLNode holder = _head;
     int num = 0;
-    while (num < index) {
+    while (num < index) { 
       holder = holder.getNext();
       num++;
     }
-    return (XYZ) holder.getCargo();
+    return holder.getCargo();
   }
 
 
-  public XYZ set( int index, XYZ newVal )
+  public String set( int index, String newVal )
   {
 
     if ( index < 0 || index >= size() )
@@ -94,9 +94,9 @@ public class LList<XYZ> implements List<XYZ> //interface def must be in this dir
       holder = holder.getNext();
       num++;
     }
-    XYZ oldCargo = (XYZ) holder.getCargo();
+    String oldCargo = holder.getCargo();
     holder.setCargo(newVal);
-    return (XYZ) oldCargo;
+    return oldCargo;
   }
 
 
@@ -109,44 +109,44 @@ public class LList<XYZ> implements List<XYZ> //interface def must be in this dir
 
   //--------------^  List interface methods  ^--------------
 
-  public XYZ remove(int index)
+  public String remove(int index)
   {
     //OMG IM DYING THAT IS THE UGLIST CODE I'VE WRITTEN
     if ( index < 0 || index >= size() )
       throw new IndexOutOfBoundsException();
     if (index == 0) {
-      XYZ val = (XYZ) _head.getCargo();
+      String val = _head.getCargo();
       _head = _head.getNext();
       _size--;
       return val;
-
+      
     } else if(index == _size - 1) {
-      XYZ val = (XYZ) _head.getCargo();
+      String val = _head.getCargo();
       _head = _head.getPrevious();
       _head.setNext(null);
       _size--;
       return val;
     }
-    XYZ returnVal;
+    String returnVal = "";
     DLLNode holder = _head;
     for (int i = 0; i < index - 1; i++) {
       holder = holder.getNext();
-    }
+    } 
 
-    returnVal = (XYZ) holder.getNext().getCargo();
+    returnVal = holder.getNext().getCargo();
     holder.setNext(holder.getNext().getNext());
     holder.getNext().setPrevious(holder);
     _size--;
     return returnVal;
   }
 
-  public void add( int index, XYZ newVal )
+  public void add( int index, String newVal ) 
   {
     if ( index < 0 || index > size() )
       throw new IndexOutOfBoundsException();
     DLLNode holder = _head;
     if (index == 0) {
-      add(newVal);
+      add(newVal);      
     } else {
       for (int i = 0; i < index - 1; i++) {
         holder = holder.getNext();
@@ -155,7 +155,7 @@ public class LList<XYZ> implements List<XYZ> //interface def must be in this dir
       holder.getNext().getNext().setPrevious(holder.getNext());
     }
     _size++;
-
+   
 
   }
 
@@ -177,16 +177,16 @@ public class LList<XYZ> implements List<XYZ> //interface def must be in this dir
   //main method for testing
   public static void main( String[] args )
   {
-
-    LList james = new LList<Integer>();
-    james.add(1);
-    james.add(69);
-    james.add(0, 90);
+    
+    LList james = new LList();
+    james.add("elmo");
+    james.add("fineas");
+    james.add(0, "flea");
     System.out.println(james);
     System.out.println(james.get(0));
-
+    
     System.out.println(james);
-
+    
   }
 
 }//end class LList

@@ -4,24 +4,24 @@
  * Stores its data as a String
  **/
 
-public class DLLNode
+public class DLLNode<T>
 {
   //instance vars
-  private String data;
-  private DLLNode nextNode; 
-  private DLLNode previousNode;
+  private T data;
+  private DLLNode nextNode;
+  private DLLNode prevNode;
 
   // constructor
-  public DLLNode( String value, DLLNode next, DLLNode previousNode )
+  public DLLNode( T value, DLLNode previous, DLLNode next )
   {
     this.data = value;
     this.nextNode = next;
-    this.previousNode = previousNode;
+    this.prevNode = previous;
   }
 
 
   //--------------v  ACCESSORS  v--------------
-  public String getCargo()
+  public T getCargo()
   {
     return data;
   }
@@ -30,16 +30,16 @@ public class DLLNode
   {
     return nextNode;
   }
-  
-  public DLLNode getPrevious() 
+
+  public DLLNode getPrev()
   {
-    return previousNode;
+    return prevNode;
   }
   //--------------^  ACCESSORS  ^--------------
 
 
   //--------------v  MUTATORS  v--------------
-  public String setCargo( String newCargo )
+  public T setCargo( T newCargo )
   {
     this.data = newCargo;
     return this.data;
@@ -51,10 +51,10 @@ public class DLLNode
     return this.nextNode;
   }
 
-  public DLLNode setPrevious( DLLNode newPrevious )
+  public DLLNode setPrev( DLLNode newPrevious )
   {
-    this.previousNode = newPrevious;
-    return this.previousNode;
+    this.prevNode = newPrevious;
+    return this.prevNode;
   }
   //--------------^  MUTATORS  ^--------------
 
@@ -69,7 +69,7 @@ public class DLLNode
   //main method for testing
   public static void main( String[] args )
   {
-    
+
 
     //Q: when head ptr moves to next node in list, what happens to the node it just left?
 
@@ -83,4 +83,3 @@ public class DLLNode
   }//end main
 
 }//end class LLNode
-
