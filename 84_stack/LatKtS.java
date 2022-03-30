@@ -55,10 +55,11 @@ public class LatKtS
 
     /*
     ALGO:
-    if stack is empty and all chars in s have not yet been added:
-      add the next char in s
-    else:
-      if stack.getLast() is the complement of a given char:
+    for each character in the s:
+
+      if stack is empty and all chars in s have not yet been added:
+        add the next char in s
+      else if stack.getLast() is the complement of a given char:
         stack.pop()
       else:
         stack.push( given char )
@@ -69,12 +70,13 @@ public class LatKtS
       if ( stack.isEmpty() ) {
         stack.push( givenChar );
       }
-      else {
-        if ( (stack.getLast().equals( "(") && givenChar.equals( ")" )) ||
-             (stack.getLast().equals( "[") && givenChar.equals( "]" )) ||
-             (stack.getLast().equals( "{") && givenChar.equals( "}" )) ) {
-          stack.pop();
-             }
+      else if  ( (stack.getLast().equals( "(") && givenChar.equals( ")" )) ||
+           (stack.getLast().equals( "[") && givenChar.equals( "]" )) ||
+           (stack.getLast().equals( "{") && givenChar.equals( "}" )) )
+      {
+        stack.pop();
+      }
+
         else {
           stack.push( givenChar );
         }
@@ -90,13 +92,13 @@ public class LatKtS
   public static void main( String[] args )
   {
 
-    //System.out.println(flip("stressed"));
-    //System.out.println(allMatched( "({}[()])" )); //true
-    //System.out.println(allMatched( "([)]" ) ); //false
-    //System.out.println(allMatched( "(){([])}" ) ); //true
-    //System.out.println(allMatched( "](){([])}" ) ); //false
-    //System.out.println(allMatched( "(){([])}(" ) ); //false
-    //System.out.println(allMatched( "()[[]]{{{{((([])))}}}}" ) ); //true
+    System.out.println(flip("stressed"));
+    System.out.println(allMatched( "({}[()])" )); //true
+    System.out.println(allMatched( "([)]" ) ); //false
+    System.out.println(allMatched( "(){([])}" ) ); //true
+    System.out.println(allMatched( "](){([])}" ) ); //false
+    System.out.println(allMatched( "(){([])}(" ) ); //false
+    System.out.println(allMatched( "()[[]]{{{{((([])))}}}}" ) ); //true
   }
 
 }//end class
