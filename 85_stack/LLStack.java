@@ -17,11 +17,21 @@ public class LLStack<T> implements Stack<T> {
       return stack.get(0);
     }
 
-    public T remove() {
+    public T pop() {
+      size--;
       return stack.remove(0);
     }
 
     public void push(T element){
-      stack.
+      size++;
+      stack.add(0, element);
+    }
+
+    public String toString() {
+      String retVal = "";
+      for (int i = 0; i < size; i++) {
+        retVal += stack.get(i) + ", ";
+      }
+      return retVal;
     }
 }
