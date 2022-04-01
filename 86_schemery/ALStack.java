@@ -28,4 +28,12 @@ public class ALStack<T> implements Stack<T> {
       stack.add(x);
       size++;
     }
+
+    public String toString() {
+      String retVal = "";
+      for (int i = 0; i < size; i++) {
+        retVal += stack.get(i) + ", ";
+      }
+      return retVal;
+    }
 }

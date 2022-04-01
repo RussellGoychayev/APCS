@@ -24,7 +24,6 @@ public class Scheme
    **/
   public static String evaluate( String expr )
   {
-    int retVal = 0;
     Stack stack = new ALStack<String>();
     Stack ops = new ALStack<Integer>();
 
@@ -33,9 +32,14 @@ public class Scheme
       //initialize a String to represent each character in expr
       String givenChar = expr.substring(i, i+1);
 
-      //follow a case-by-case basis for digits, +, -, *, and )
+      //follow a case-by-case basis for space, digits, +, -, *, and )
+      //space
+      if ( givenChar.equals ( " " ) ){
+
+      }
+
       //ops:
-      if ( givenChar.equals( "+") ){
+      else if ( givenChar.equals( "+") ){
         ops.push( 1 );
       }
       else if ( givenChar.equals( "-") ){
@@ -54,9 +58,11 @@ public class Scheme
       else {
         stack.push( unload( ((int) ops.pop()), stack) );
       }
-    }
 
-    return Integer.toString( retVal );
+      //System.out.println( stack );//diag
+    }
+    //System.out.println( "===========" );//diag
+    return (String) stack.pop();
   }//end evaluate()
 
 
@@ -73,19 +79,25 @@ public class Scheme
     //add
     if ( op == 1 ){
       while ( !numbers.peekTop().equals( "(") ){
+        // System.out.println( retVal );//diag
         retVal += Integer.parseInt( numbers.pop() );
+        // System.out.println( retVal );//diag
       }
     }
     //subtract
     else if (op == 2 ){
       while ( !numbers.peekTop().equals( "(") ){
+        // System.out.println( retVal );//diag
         retVal -= Integer.parseInt( numbers.pop() );
+        // System.out.println( retVal );//diag
       }
     }
     //multiply
     else if ( op == 3 ){
       while ( !numbers.peekTop().equals( "(") ){
+        // System.out.println( retVal );//diag
         retVal *= Integer.parseInt( numbers.pop() );
+        // System.out.println( retVal );//diag
       }
     }
 
@@ -115,7 +127,10 @@ public class Scheme
       System.out.println("zoo1 eval'd: " + evaluate(zoo1) );
       //...7
 
-
+      String foo = "( + 100 ( * 2 5 ) 5 )";
+      System.out.println( foo );
+      System.out.println( "foo eval'd: " + evaluate(foo) );
+/*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       String zoo2 = "( + 4 ( * 2 5 ) 3 )";
       System.out.println(zoo2);
       System.out.println("zoo2 eval'd: " + evaluate(zoo2) );
@@ -130,7 +145,6 @@ public class Scheme
       System.out.println(zoo4);
       System.out.println("zoo4 eval'd: " + evaluate(zoo4) );
       //...-4
-      /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
   }//main()
 
