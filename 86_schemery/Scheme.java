@@ -24,61 +24,40 @@ public class Scheme
    **/
   public static String evaluate( String expr )
   {
-    //stack for the big scene
     int retVal = 0;
     Stack stack = new ALStack<String>();
+    Stack ops = new ALStack<Integer>();
 
+    //use for loop to parse expr
     for (int i=0; i<expr.length(); i++){
+      //initialize a String to represent each character in expr
       String givenChar = expr.substring(i, i+1);
 
-      //if not closer: push onto stack
-      if ( !givenChar.equals( ")" ) ){
+      //follow a case-by-case basis for digits, +, -, *, and )
+      //ops:
+      if ( givenChar.equals( "+") ){
+        ops.push( 1 );
+      }
+      else if ( givenChar.equals( "-") ){
+        ops.push( 2 );
+      }
+      else if ( givenChar.equals( "*" ) ){
+        ops.push( 3 );
+      }
+
+      //digits:
+      else if ( !givenChar.equals( ")" ) ){
         stack.push( givenChar );
       }
 
-      //if closer: begin resolving the stack
+      // closer
       else {
-        //temporary stack for resolving
-        Stack temp = new ALStack<String>();
-        String givenChar = stack.pop();
-
-        if ( !isOperator( givenChar ) ){
-          temp.push( givenChar );
-        }
-
-        //operator will be reached once stack is resolved
-        else {
-          while ( !stack.isEmpty() ){
-            
-          }
-        }
-
+        stack.push( unload( ((int) ops.pop()), stack) );
       }
-
     }
 
-    return null;
+    return Integer.toString( retVal );
   }//end evaluate()
-
-/***
-  // helper method for evaluate; checks if s is a Stringified single-digit integer
-  private static boolean isDigit( String s ){
-    if ( s.equals( "0" ) || s.equals( "1" ) || s.equals( "2" ) ||
-         s.equals( "3" ) || s.equals( "4" ) || s.equals( "5" ) ||
-         s.equals( "6" ) || s.equals( "7" ) || s.equals( "8" ) ||
-         s.equals( "9" ) )
-      return true;
-    return false;
-  }//end isInt()
-**/
-
-  //helper method for evaluate; checks if s is "+","-","/","*"
-  private static boolean isOperator( String s ){
-    if ( s.equals( "+" ) || s.equals( "-" ) || s.equals( "*" ) ||
-         s.equals( "/" ) )
-      return true;
-    return false;
-  }//end isOperator()
 
 
 
@@ -90,7 +69,27 @@ public class Scheme
    **/
   public static String unload( int op, Stack<String> numbers )
   {
-    return null;
+    int retVal = Integer.parseInt( numbers.pop() );
+    //add
+    if ( op == 1 ){
+      while ( !numbers.peekTop().equals( "(") ){
+        retVal += Integer.parseInt( numbers.pop() );
+      }
+    }
+    //subtract
+    else if (op == 2 ){
+      while ( !numbers.peekTop().equals( "(") ){
+        retVal -= Integer.parseInt( numbers.pop() );
+      }
+    }
+    //multiply
+    else if ( op == 3 ){
+      while ( !numbers.peekTop().equals( "(") ){
+        retVal *= Integer.parseInt( numbers.pop() );
+      }
+    }
+
+    return Integer.toString( retVal );
   }//end unload()
 
 
@@ -116,7 +115,7 @@ public class Scheme
       System.out.println("zoo1 eval'd: " + evaluate(zoo1) );
       //...7
 
-      /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
+
       String zoo2 = "( + 4 ( * 2 5 ) 3 )";
       System.out.println(zoo2);
       System.out.println("zoo2 eval'd: " + evaluate(zoo2) );
@@ -131,6 +130,7 @@ public class Scheme
       System.out.println(zoo4);
       System.out.println("zoo4 eval'd: " + evaluate(zoo4) );
       //...-4
+      /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
   }//main()
 
