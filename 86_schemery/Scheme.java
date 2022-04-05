@@ -35,7 +35,7 @@ public class Scheme
       //follow a case-by-case basis for space, digits, +, -, *, and )
       //space
       if ( givenChar.equals ( " " ) ){
-
+        //do nothing
       }
 
       //ops:
@@ -55,8 +55,15 @@ public class Scheme
       }
 
       // closer
-      else {
-        stack.push( unload( ((int) ops.pop()), stack) );
+      else if ( givenChar.equals( ")" ) ){
+        Stack tempStack = new ALStack<String>();
+        System.out.println( "1 Stack to be unloaded: " + stack );
+        //unload until first opener
+        while ( !stack.peekTop().equals( "(") ) {
+          tempStack.push( stack.pop() );
+        }
+        System.out.println( "2 Stack to be unloaded: " + tempStack );
+        tempStack.push( unload( ((int) ops.pop()), tempStack) );
       }
 
       //System.out.println( stack );//diag
@@ -76,28 +83,29 @@ public class Scheme
   public static String unload( int op, Stack<String> numbers )
   {
     int retVal = Integer.parseInt( numbers.pop() );
+
     //add
     if ( op == 1 ){
       while ( !numbers.peekTop().equals( "(") ){
-        // System.out.println( retVal );//diag
+        System.out.println( retVal );//diag
         retVal += Integer.parseInt( numbers.pop() );
-        // System.out.println( retVal );//diag
+        System.out.println( retVal );//diag
       }
     }
     //subtract
     else if (op == 2 ){
-      while ( !numbers.peekTop().equals( "(") ){
-        // System.out.println( retVal );//diag
+      while ( !numbers.peekTop().equals( "(") ) {
+        System.out.println( retVal );//diag
         retVal -= Integer.parseInt( numbers.pop() );
-        // System.out.println( retVal );//diag
+        System.out.println( retVal );//diag
       }
     }
     //multiply
     else if ( op == 3 ){
       while ( !numbers.peekTop().equals( "(") ){
-        // System.out.println( retVal );//diag
+        System.out.println( retVal );//diag
         retVal *= Integer.parseInt( numbers.pop() );
-        // System.out.println( retVal );//diag
+        System.out.println( retVal );//diag
       }
     }
 
@@ -121,12 +129,12 @@ public class Scheme
 
   //main method for testing
   public static void main( String[] args )
-  {
+  {/*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       String zoo1 = "( + 4 3 )";
       System.out.println(zoo1);
       System.out.println("zoo1 eval'd: " + evaluate(zoo1) );
       //...7
-
+^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
       String foo = "( + 100 ( * 2 5 ) 5 )";
       System.out.println( foo );
       System.out.println( "foo eval'd: " + evaluate(foo) );
@@ -145,6 +153,7 @@ public class Scheme
       System.out.println(zoo4);
       System.out.println("zoo4 eval'd: " + evaluate(zoo4) );
       //...-4
+
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
   }//main()
 
