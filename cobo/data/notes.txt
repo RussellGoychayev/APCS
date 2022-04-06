@@ -6,7 +6,8 @@ time spent: <elapsed time in hours, rounded to nearest tenth>
 
 
 DISCO
-
+* -d means destination
+* : is a token means path to this
 
 QCC
 
@@ -17,3 +18,4 @@ QCC
 
 TRUBZ
 <this lab involves using tools that are likely to introduce hiccups; log any troubleshooting issues here>
+* 
