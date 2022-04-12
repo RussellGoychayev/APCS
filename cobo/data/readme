@@ -8,8 +8,8 @@ data sets:
 To make a JAR available to runtime environment (JRE)...
 
 ```
-$ javac -classpath .:../sinbad.jar -d . Welcome01.java
-$ java -classpath .:../sinbad.jar Welcome01
+$ javac -classpath .:../sinbad.jar -d . Welcome03_List.java
+$ java -classpath .:../sinbad.jar Welcome03_List
 ```
 
 411 on sinbad
