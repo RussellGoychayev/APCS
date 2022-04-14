@@ -47,23 +47,16 @@ public class ALDequeueue<T> implements Deque<T> {
     return _deque.size();
   }
 
-  public String toString() {
-    return _deque.toString();
+  public boolean contains(Object e) {
+    return _deque.contains(e);
   }
 
-  public static void main(String[] args) {
-    ALDequeueue<String> kermit = new ALDequeueue<String>();
-    kermit.addFirst("a");
-    System.out.println( "getFirst: " + kermit.getFirst() );
-    kermit.addFirst("b");
-    System.out.println( "getFirst: " + kermit.getFirst() );
-    System.out.println( "kermit: " + kermit );
-    
-    kermit.addLast("y");
-    System.out.println( "getLast " + kermit.getLast() );
-    kermit.addLast("z");
-    System.out.println( "getLast " + kermit.getLast() );
-    System.out.println( "kermit: " + kermit );
+  public boolean remove(Object e) {
+    return _deque.remove(e);
+  }
+
+  public String toString() {
+    return _deque.toString();
   }
 
 }

@@ -2,7 +2,7 @@ Team Purple Pineapples: Jason Zhou, Marcus Wu, Russell Goychayev
 APCS
 HW90 - Deque
 04/12/2022
-time spent: 69 centuries
+time spent: 0.2 hrs
 
 prioritized to-do list:
 1) choose relevant methods for interface

@@ -14,4 +14,6 @@ public interface Deque<T> {
   public T removeLast();
   public boolean isEmpty();
   public int size();
+  public boolean contains(Object e);
+  public boolean remove(Object e);
 }
