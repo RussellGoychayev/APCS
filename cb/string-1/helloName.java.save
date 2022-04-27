@@ -1,0 +1,7 @@
+public String helloName(String name) {
+  return "Hello " + name + "!";
+}
+
+System.out.println(helloName("Bob")// → "Hello Bob!"
+System.out.println(System.out.println(helloName("Alice")// → "Hello Alice!"
+helloName("X") // → "Hello X!"
