@@ -1,0 +1,11 @@
+Team Purple Pineapples First Class Priority Queueueueueue
+APCS pd7
+HW97 – Racist Queue
+05/15/2022
+time spent: 0.5 hours
+
+DISCO:
+* None
+
+QCC:
+* Is our implementation of APQ optimal?
